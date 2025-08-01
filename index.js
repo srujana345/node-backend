@@ -5,6 +5,7 @@ import userRoute from "./routes/userRoute.js";
 import productRoute from "./routes/productRoute.js";
 import dotenv from "dotenv";
 import orderRoute from "./routes/orderRoute.js";
+import hotItemRoute from "./routes/hotItemRoute.js";
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -37,3 +38,5 @@ mongoose
 app.use("/api/user", userRoute);
 app.use("/api/product", productRoute);
 app.use("/api/order", orderRoute);
+
+app.use("/api/hot", hotItemRoute);
