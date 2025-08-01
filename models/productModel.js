@@ -3,7 +3,7 @@ const productSchema = new mongoose.Schema(
   {
     name: { type: String },
     desc: { type: String },
-    price: { type: Number },
+    // price: { type: Number },
     
     url: { type: String },
   },
