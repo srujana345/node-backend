@@ -18,3 +18,26 @@ export const getHotItems = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+export const deleteHotItem = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await hotItemModel.findByIdAndDelete(id);
+    res.status(200).json({ message: "Hot item deleted", result });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to delete hot item", details: err });
+  }
+};
+export const updateHotItem = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updatedData = req.body;
+    const result = await hotItemModel.findByIdAndUpdate(id, updatedData, {
+      new: true,
+    });
+    res.status(200).json({ message: "Hot item updated", result });
+  } catch (err) {
+    res.status(500).json({ error: "Failed to update hot item", details: err });
+  }
+};
+

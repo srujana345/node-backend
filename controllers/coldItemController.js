@@ -18,3 +18,27 @@ export const addColdItem = async (req, res) => {
     res.status(500).json({ error: "Failed to add cold item" });
   }
 };
+
+
+export const deleteColdItem = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await ColdItem.findByIdAndDelete(id);
+    res.status(200).json(result);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Failed to delete cold item" });
+  }
+};
+
+export const updateColdItem = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const body = req.body;
+    const result = await ColdItem.findByIdAndUpdate(id, body, { new: true });
+    res.status(200).json(result);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "Failed to update cold item" });
+  }
+};

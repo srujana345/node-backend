@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import orderRoute from "./routes/orderRoute.js";
 import hotItemRoute from "./routes/hotItemRoute.js";
 import coldItemRoute from "./routes/coldItemRoute.js";
+import icedItemRoute from "./routes/icedItemRoute.js";
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -42,3 +43,4 @@ app.use("/api/order", orderRoute);
 
 app.use("/api/hot", hotItemRoute);
 app.use("/api/cold", coldItemRoute);
+app.use("/api/iced", icedItemRoute);
