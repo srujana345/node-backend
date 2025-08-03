@@ -54,5 +54,15 @@ const deleteProduct = async (req, res) => {
     res.status(400).json({ message: "Delete failed" });
   }
 };
+// Get all products
+export const showAllProducts = async (req, res) => {
+  try {
+    const allProducts = await productModel.find({});
+    res.status(200).json(allProducts);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching all products", error });
+  }
+};
+
 
 export { showProducts, createProduct, updateProduct, deleteProduct };
