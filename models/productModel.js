@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema(
     desc: String,
     category: {
       type: String,
-      enum: ["hot", "cold", "iced"], // restrict to valid categories
+      enum: ["Hot", "Cold", "Iced"], // restrict to valid categories
       required: true,
     },
   },

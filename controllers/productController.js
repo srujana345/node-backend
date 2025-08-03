@@ -1,17 +1,20 @@
+
 import productModel from "../models/productModel.js";
 
-// GET all products or by category if provided
 const showProducts = async (req, res) => {
   try {
-    const { category } = req.query;
-    const query = category ? { category } : {};
+    const { category } = req.params;
+    let query = {};
+    if (category) {
+      query.category = category;
+    }
     const products = await productModel.find(query);
-    res.status(200).json(products);
+    res.json(products);
   } catch (err) {
-    console.error("Error fetching products:", err);
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ error: "Error fetching products" });
   }
 };
+
 
 // POST - Create a new product
 const createProduct = async (req, res) => {
