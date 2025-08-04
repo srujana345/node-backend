@@ -55,7 +55,7 @@ const deleteProduct = async (req, res) => {
   }
 };
 // Get all products
-export const showAllProducts = async (req, res) => {
+ const showAllProducts = async (req, res) => {
   try {
     const allProducts = await productModel.find({});
     res.status(200).json(allProducts);
@@ -65,4 +65,4 @@ export const showAllProducts = async (req, res) => {
 };
 
 
-export { showProducts, createProduct, updateProduct, deleteProduct };
+export { showProducts, createProduct, updateProduct, deleteProduct, showAllProducts };
